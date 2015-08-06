@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RadialGradientView">
+        <attr name="startColor" format="color|reference"/>
+        <attr name="endColor" format="color|reference"/>
+        <attr name="gradientRadiusWidthPercent" format="float"/>
+        <attr name="centerX" format="float"/>
+        <attr name="centerY" format="float"/>
+    </declare-styleable>
+</resources>

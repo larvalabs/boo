@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="preview_width">108dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="large_margin">48dp</dimen>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_pink_start">#c566b9</color>
+    <color name="background_pink_end">#f5148a</color>
+    <color name="background_blue_start">#00c0ff</color>
+    <color name="background_blue_end">#007dff</color>
+    <color name="background_green_start">#19d2c7</color>
+    <color name="background_green_end">#19d29c</color>
+    <color name="background_orange_start">#ffc62d</color>
+    <color name="background_orange_end">#ff9b2d</color>
+    <color name="background_purple_start">#d658ff</color>
+    <color name="background_purple_end">#9d58ff</color>
+    <color name="background_red_start">#ff9561</color>
+    <color name="background_red_end">#ff5442</color>
+    <color name="background_teal_start">#00d5c3</color>
+    <color name="background_teal_end">#00bcd5</color>
+    <color name="background_yellow_start">#f0ff44</color>
+    <color name="background_yellow_end">#ffeb3c</color>
+    <color name="body_color">#000000</color>
+    <color name="eye_color">#ffffff</color>
+</resources>
