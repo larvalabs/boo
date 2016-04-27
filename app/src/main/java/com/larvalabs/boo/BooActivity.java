@@ -1,13 +1,8 @@
 package com.larvalabs.boo;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -18,8 +13,6 @@ import java.io.IOException;
 import static com.larvalabs.boo.Util.log;
 
 public class BooActivity extends Activity implements SurfaceHolder.Callback {
-
-    private static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
 
     private static final int[][] BACKGROUNDS = {
             {R.color.background_pink_start, R.color.background_pink_end},
@@ -62,46 +55,16 @@ public class BooActivity extends Activity implements SurfaceHolder.Callback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Check if user has given permission to access camera
-        int permissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
-        if (permissionCheck == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_CAMERA);
-        } else {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            setContentView(R.layout.activity_boo);
-            surfaceView = (SurfaceView) findViewById(R.id.preview);
-            surfaceHolder = surfaceView.getHolder();
-            surfaceHolder.addCallback(this);
-            introView = (CreaturesView) findViewById(R.id.intro);
-            introView.setIntroMode(true);
-            creaturesView = (CreaturesView) findViewById(R.id.creatures);
-            gradientView = (RadialGradientView) findViewById(R.id.background);
-            backgroundIndex = 0;
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == MY_PERMISSIONS_REQUEST_CAMERA) {
-            if (grantResults.length == 0) {
-                // Permission denied
-                finish();
-            } else {
-                if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                    // Permission denied
-                    finish();
-                } else if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permission granted
-                    // Restart application
-                    Intent intent = new Intent(getApplicationContext(), BooActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        }
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setContentView(R.layout.activity_boo);
+        surfaceView = (SurfaceView)findViewById(R.id.preview);
+        surfaceHolder = surfaceView.getHolder();
+        surfaceHolder.addCallback(this);
+        introView = (CreaturesView) findViewById(R.id.intro);
+        introView.setIntroMode(true);
+        creaturesView = (CreaturesView) findViewById(R.id.creatures);
+        gradientView = (RadialGradientView) findViewById(R.id.background);
+        backgroundIndex = 0;
     }
 
     Camera.FaceDetectionListener faceDetectionListener = new Camera.FaceDetectionListener(){
